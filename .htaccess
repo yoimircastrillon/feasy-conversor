@@ -1,0 +1,13 @@
+# Habilitar reescritura de URL
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /feasy-conversor/
+    
+    # Reglas simples - permitir acceso a archivos y directorios existentes
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [L]
+</IfModule>
+
+# Protección básica
+Options -Indexes
